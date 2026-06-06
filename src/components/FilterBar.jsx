@@ -204,7 +204,7 @@ const FilterBar = ({ bundle, onFilterChange, userRole, onDownloadReport }) => {
 
       <div className="filter-box">
         <select className="control-input" value={status} onChange={(e) => setStatus(e.target.value)}>
-          <option value="All">All Statuses</option>
+          <option value="All">All Status</option>
           <option value="Opened">Opened</option>
           <option value="In Progress">In Progress</option>
           <option value="Ready to Close">Ready to Close</option>
