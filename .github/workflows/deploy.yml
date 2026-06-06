@@ -35,6 +35,8 @@ jobs:
         
       - name: Build
         run: npm run build
+        env:
+          VITE_GAS_API_URL: "https://script.google.com/macros/s/AKfycbxMHiISb7-mnHbpr96ojPUJbeWHkX7EQpwJeCVAW-XyiPExTKSxpUOhCFPQICyXAdGb/exec"
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
