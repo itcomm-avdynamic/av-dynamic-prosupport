@@ -15,7 +15,8 @@ const TicketTable = ({ parents, children, userRole, isAdmin, currentUserEmail, o
         engineerEmail: childTicket.Engineer_Email || childTicket.engineerEmail || '',
         clientCompany: parentTicket.Company_Name || parentTicket['Company Name'] || parentTicket.companyName || '',
         location: parentTicket.Location || parentTicket.location || '',
-        issue: parentTicket.Issue_Type || parentTicket['Issue Type'] || parentTicket.issueType || parentTicket.Category || 'AV Support Issue'
+        issue: parentTicket.Issue_Type || parentTicket['Issue Type'] || parentTicket.issueType || parentTicket.Category || 'AV Support Issue',
+        phoneNumber: parentTicket.PhoneNumber || parentTicket.phoneNumber || parentTicket['Phone Number'] || 'N/A'
       });
     } catch (error) {
       console.error("Failed to ping engineer:", error);
@@ -167,6 +168,12 @@ const TicketTable = ({ parents, children, userRole, isAdmin, currentUserEmail, o
                         <div className="child-header-grid">
                           <div>
                             <p className="detail-text" style={{marginBottom: '5px'}}><b>Requested By:</b> {p.Requested_By || p['Requested By'] || p.requestedBy || 'N/A'}</p>
+                            {userRole !== 'Client' && (
+                              <>
+                                <p className="detail-text" style={{marginBottom: '5px'}}><b>Email:</b> {p.Client_Email || p.clientEmail || p['Client Email'] || 'N/A'}</p>
+                                <p className="detail-text" style={{marginBottom: '5px'}}><b>Phone:</b> {p.PhoneNumber || p.phoneNumber || p['Phone Number'] || 'N/A'}</p>
+                              </>
+                            )}
                             <p className="detail-text" style={{marginBottom: '5px'}}><b>Sales Order:</b> {p.Sales_Order || p['Sales Order'] || p.salesOrder || 'N/A'}</p>
                             <p className="detail-text" style={{marginBottom: '10px'}}>
                               <b>Hardware:</b> {p.ProductMake || p.Brand || 'N/A'} - {p.ProductModel || p.Model || 'N/A'} (S/N: {p.ProductSerial || p.Serial || 'N/A'})

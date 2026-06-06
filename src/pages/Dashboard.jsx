@@ -380,6 +380,7 @@ const Dashboard = () => {
         clientCompany: pingData.clientCompany,
         location: pingData.location,
         issue: pingData.issue,
+        phoneNumber: pingData.phoneNumber,
         actorEmail: user?.email || ''
       });
 

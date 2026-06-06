@@ -58,6 +58,7 @@ const CreateTicketModal = ({ isOpen, onClose, bundle, currentUser, onSuccess, in
           company: initialData?.companyName || '',
           clientEmail: initialData?.email || '',
           reqBy: initialData?.requesterName || '',
+          phoneNumber: initialData?.phoneNumber || '',
           location: initialData?.location || '',
           room: initialData?.roomName || '',
           category: initialData?.category || '',
