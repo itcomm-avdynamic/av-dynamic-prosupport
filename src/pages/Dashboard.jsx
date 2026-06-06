@@ -258,11 +258,13 @@ const Dashboard = () => {
     const headers = [
       'Ticket ID',
       'SR Ref',
+      'Requester Name',
       'Company Name',
       'Location',
       'Issue Category',
       'Status',
       'Open Date',
+      'Closed Date',
       'Total Resolution Time (Days)'
     ];
 
@@ -273,21 +275,25 @@ const Dashboard = () => {
       
       const ticketId = p?.Parent_ID || p?.['Parent ID'] || p?.parentId || '';
       const srRef = p?.Service_Request_ID || p?.['Service Request ID'] || p?.serviceRequestId || '';
+      const requesterName = p?.Requested_By || p?.['Requested By'] || p?.requestedBy || '';
       const companyName = p?.Company_Name || p?.['Company Name'] || p?.companyName || '';
       const location = p?.Location || p?.location || '';
       const category = p?.Category || p?.category || '';
       const status = p?.Status || p?.status || 'Opened';
       const openDate = formatCsvDate(p?.Open_Date || p?.openDate || p?.['Open Date']);
+      const closedDate = formatCsvDate(p?.Close_Date || p?.closeDate || p?.['Close Date']);
       const resTime = p?.Resolved_Days || p?.['Resolved Days'] || p?.resolvedDays || '';
 
       const row = [
         ticketId,
         srRef,
+        requesterName,
         companyName,
         location,
         category,
         status,
         openDate,
+        closedDate,
         resTime
       ];
       csvRows.push(row.map(escapeCsvField).join(','));

@@ -48,27 +48,27 @@ const FilterBar = ({ bundle, onFilterChange, userRole, onDownloadReport }) => {
 
   // Helper to check if dates match a specific quarter of the current year
   const checkQuarterMatch = (start, end) => {
-    if (start === `${currentYearBound}-01-01` && end === `${currentYearBound}-03-31`) return 'Q1';
-    if (start === `${currentYearBound}-04-01` && end === `${currentYearBound}-06-30`) return 'Q2';
-    if (start === `${currentYearBound}-07-01` && end === `${currentYearBound}-09-30`) return 'Q3';
-    if (start === `${currentYearBound}-10-01` && end === `${currentYearBound}-12-31`) return 'Q4';
+    if (start === `${currentYearBound}-04-01` && end === `${currentYearBound}-06-30`) return 'Q1';
+    if (start === `${currentYearBound}-07-01` && end === `${currentYearBound}-09-30`) return 'Q2';
+    if (start === `${currentYearBound}-10-01` && end === `${currentYearBound}-12-31`) return 'Q3';
+    if (start === `${currentYearBound}-01-01` && end === `${currentYearBound}-03-31`) return 'Q4';
     return 'Custom';
   };
 
   const handleQuarterChange = (value) => {
     setQuarter(value);
     if (value === 'Q1') {
-      setStartDate(`${currentYearBound}-01-01`);
-      setEndDate(`${currentYearBound}-03-31`);
-    } else if (value === 'Q2') {
       setStartDate(`${currentYearBound}-04-01`);
       setEndDate(`${currentYearBound}-06-30`);
-    } else if (value === 'Q3') {
+    } else if (value === 'Q2') {
       setStartDate(`${currentYearBound}-07-01`);
       setEndDate(`${currentYearBound}-09-30`);
-    } else if (value === 'Q4') {
+    } else if (value === 'Q3') {
       setStartDate(`${currentYearBound}-10-01`);
       setEndDate(`${currentYearBound}-12-31`);
+    } else if (value === 'Q4') {
+      setStartDate(`${currentYearBound}-01-01`);
+      setEndDate(`${currentYearBound}-03-31`);
     }
   };
 
@@ -234,10 +234,10 @@ const FilterBar = ({ bundle, onFilterChange, userRole, onDownloadReport }) => {
           title="Select Quick Quarter or Custom Range"
         >
           <option value="Custom">Custom</option>
-          <option value="Q1">Q1 (Jan-Mar)</option>
-          <option value="Q2">Q2 (Apr-Jun)</option>
-          <option value="Q3">Q3</option>
-          <option value="Q4">Q4</option>
+          <option value="Q1">Q1 (Apr-Jun)</option>
+          <option value="Q2">Q2 (Jul-Sep)</option>
+          <option value="Q3">Q3 (Oct-Dec)</option>
+          <option value="Q4">Q4 (Jan-Mar)</option>
         </select>
       </div>
 

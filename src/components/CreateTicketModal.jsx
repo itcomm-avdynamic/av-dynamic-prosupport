@@ -6,6 +6,7 @@ const initialState = {
   serviceRequestId: '',
   company: '',
   clientEmail: '',
+  phoneNumber: '',
   salesOrder: '',
   clientId: '',
   location: '',
@@ -222,7 +223,19 @@ const CreateTicketModal = ({ isOpen, onClose, bundle, currentUser, onSuccess, in
             </div>
 
             <div className="form-group">
-              <label>Location (City/Branch) *</label>
+              <label>Phone Number</label>
+              <input 
+                type="tel" 
+                name="phoneNumber" 
+                value={formData.phoneNumber} 
+                onChange={handleChange} 
+                placeholder="e.g., +1 234 567 890" 
+                disabled={status.loading}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Location (Site) *</label>
               <input type="text" name="location" value={formData.location} onChange={handleChange} required disabled={status.loading} />
             </div>
 
@@ -237,10 +250,10 @@ const CreateTicketModal = ({ isOpen, onClose, bundle, currentUser, onSuccess, in
               <select name="category" value={formData.category} onChange={handleChange} required disabled={status.loading}>
                 <option value="">Select...</option>
                 <option>Hardware</option>
-                <option>Software</option>
-                <option>Network</option>
                 <option>Connectivity</option>
                 <option>Programming</option>
+                <option>Software</option>
+                <option>Network</option>
               </select>
             </div>
 
@@ -253,6 +266,18 @@ const CreateTicketModal = ({ isOpen, onClose, bundle, currentUser, onSuccess, in
                 <option>AV Connectivity & Testing</option>
                 <option>Installation / Replacement Activity</option>
                 <option value="Other">Other Issues</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>Type of Service</label>
+              <select name="serviceType" value={formData.serviceType} onChange={handleChange} disabled={status.loading}>
+                <option value="">Select...</option>
+                <option>DLP</option>
+                <option>OEM- Warranty</option>
+                <option>Out of Warranty</option>
+                <option>C-AMC</option>
+                <option>NC- AMC</option>
               </select>
             </div>
 

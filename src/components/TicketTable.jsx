@@ -124,7 +124,7 @@ const TicketTable = ({ parents, children, userRole, isAdmin, currentUserEmail, o
                   </td>
                   <td>
                     <span className={`badge ${getBadgeClass(pStatus)}`}>{pStatus}</span>
-                    {pStatus === 'Closed' && pResolvedDays && (
+                    {pStatus === 'Closed' && (pResolvedDays || pResolvedDays === 0 || pResolvedDays === '0') && (
                       <div className="badge-grey mt-1">Resolved in {pResolvedDays} Days</div>
                     )}
                   </td>

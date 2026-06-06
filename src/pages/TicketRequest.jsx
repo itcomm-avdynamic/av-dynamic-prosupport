@@ -17,7 +17,7 @@ const TicketRequest = () => {
 
   // Form Data State
   const [formData, setFormData] = useState({
-    reqName: '', reqEmail: '', reqLocation: '', reqRoom: '', reqCategory: '', reqDescription: ''
+    reqName: '', reqPhone: '', reqEmail: '', reqLocation: '', reqRoom: '', reqCategory: '', reqDescription: ''
   });
 
   // Dynamic Hardware Array (Max 5)
@@ -123,6 +123,7 @@ const TicketRequest = () => {
     const payload = {
       ref: clientCode,
       requesterName: formData.reqName,
+      phoneNumber: formData.reqPhone,
       email: formData.reqEmail,
       location: formData.reqLocation,
       roomName: formData.reqRoom,
@@ -205,11 +206,15 @@ const TicketRequest = () => {
                   <input type="text" required value={formData.reqName} onChange={e => setFormData({...formData, reqName: e.target.value})} disabled={status.loading} />
                 </div>
                 <div className="input-group">
+                  <label>Phone Number <span className="req">*</span></label>
+                  <input type="tel" required value={formData.reqPhone} onChange={e => setFormData({...formData, reqPhone: e.target.value})} disabled={status.loading} />
+                </div>
+                <div className="input-group">
                   <label>Client Email(s) - Comma separated <span className="req">*</span></label>
                   <input type="text" required value={formData.reqEmail} onChange={e => setFormData({...formData, reqEmail: e.target.value})} placeholder="e.g., client1@example.com, client2@example.com" disabled={status.loading} />
                 </div>
                 <div className="input-group">
-                  <label>Location (Site/Branch) <span className="req">*</span></label>
+                  <label>Location (Site) <span className="req">*</span></label>
                   <input type="text" required value={formData.reqLocation} onChange={e => setFormData({...formData, reqLocation: e.target.value})} disabled={status.loading} />
                 </div>
                 <div className="input-group">
@@ -224,10 +229,10 @@ const TicketRequest = () => {
                   <select required value={formData.reqCategory} onChange={e => setFormData({...formData, reqCategory: e.target.value})} disabled={status.loading}>
                     <option value="">Select Category...</option>
                     <option>Hardware</option>
-                    <option>Software</option>
-                    <option>Programming</option>
-                    <option>Network</option>
                     <option>Connectivity</option>
+                    <option>Programming</option>
+                    <option>Software</option>
+                    <option>Network</option>
                   </select>
                 </div>
               </div>
