@@ -379,6 +379,7 @@ const Dashboard = () => {
         engineerEmail: pingData.engineerEmail,
         clientCompany: pingData.clientCompany,
         location: pingData.location,
+        roomName: pingData.roomName,
         issue: pingData.issue,
         phoneNumber: pingData.phoneNumber,
         actorEmail: user?.email || ''

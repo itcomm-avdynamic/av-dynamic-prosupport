@@ -15,6 +15,7 @@ const TicketTable = ({ parents, children, userRole, isAdmin, currentUserEmail, o
         engineerEmail: childTicket.Engineer_Email || childTicket.engineerEmail || '',
         clientCompany: parentTicket.Company_Name || parentTicket['Company Name'] || parentTicket.companyName || '',
         location: parentTicket.Location || parentTicket.location || '',
+        roomName: parentTicket.Room_Name || parentTicket['Room Name'] || parentTicket.roomName || '',
         issue: parentTicket.Issue_Type || parentTicket['Issue Type'] || parentTicket.issueType || parentTicket.Category || 'AV Support Issue',
         phoneNumber: parentTicket.PhoneNumber || parentTicket.phoneNumber || parentTicket['Phone Number'] || 'N/A'
       });

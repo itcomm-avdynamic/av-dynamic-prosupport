@@ -1,6 +1,6 @@
 const GAS_URL = import.meta.env.VITE_GAS_API_URL;
 
-export const gasApi = async (action, payload = {}, timeoutMs = 15000) => {
+export const gasApi = async (action, payload = {}, timeoutMs = 30000) => {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
