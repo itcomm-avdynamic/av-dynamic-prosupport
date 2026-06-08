@@ -262,6 +262,7 @@ const Dashboard = () => {
       'Company Name',
       'Location',
       'Issue Category',
+      'Issue Type',
       'Status',
       'Open Date',
       'Closed Date',
@@ -279,6 +280,7 @@ const Dashboard = () => {
       const companyName = p?.Company_Name || p?.['Company Name'] || p?.companyName || '';
       const location = p?.Location || p?.location || '';
       const category = p?.Category || p?.category || '';
+      const issueType = p?.Issue_Type || p?.['Issue Type'] || p?.issueType || '';
       const status = p?.Status || p?.status || 'Opened';
       const openDate = formatCsvDate(p?.Open_Date || p?.openDate || p?.['Open Date']);
       const closedDate = formatCsvDate(p?.Close_Date || p?.closeDate || p?.['Close Date']);
@@ -291,6 +293,7 @@ const Dashboard = () => {
         companyName,
         location,
         category,
+        issueType,
         status,
         openDate,
         closedDate,

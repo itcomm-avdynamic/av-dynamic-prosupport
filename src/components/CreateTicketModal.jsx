@@ -262,10 +262,13 @@ const CreateTicketModal = ({ isOpen, onClose, bundle, currentUser, onSuccess, in
               <label>Issue Type *</label>
               <select name="issueType" value={formData.issueType} onChange={handleChange} required disabled={status.loading}>
                 <option value="">Select...</option>
-                <option>Display Repair / Replacement</option>
-                <option>Event Support</option>
-                <option>AV Connectivity & Testing</option>
-                <option>Installation / Replacement Activity</option>
+                <option>Audio</option>
+                <option>Video</option>
+                <option>Display</option>
+                <option>Programming</option>
+                <option>Configuration / Firmware update</option>
+                <option>Connectivity</option>
+                <option>Event / Meeting Support</option>
                 <option value="Other">Other Issues</option>
               </select>
             </div>

@@ -250,6 +250,17 @@ const TicketTable = ({ parents, children, userRole, isAdmin, currentUserEmail, o
                                          {c.Engineer_Name}
                                          <br />
                                          <small>{c.Engineer_Role}</small>
+                                         <div style={{ marginTop: '8px' }}>
+                                           {c.Acknowledged_At ? (
+                                             <span style={{ backgroundColor: '#e6f4ea', color: '#137333', fontSize: '11px', borderRadius: '12px', padding: '4px 8px', display: 'inline-block', fontWeight: '500' }}>
+                                               ✅ Acknowledged
+                                             </span>
+                                           ) : (
+                                             <span style={{ backgroundColor: '#f1f3f4', color: '#5f6368', fontSize: '11px', borderRadius: '12px', padding: '4px 8px', display: 'inline-block', fontWeight: '500' }}>
+                                               ⏳ Pending Ack
+                                             </span>
+                                           )}
+                                         </div>
                                          {isAdmin && c.Engineer_Name && (
                                            <div style={{ marginTop: '6px' }} onClick={(e) => e.stopPropagation()}>
                                              <button
