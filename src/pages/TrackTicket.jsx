@@ -53,7 +53,7 @@ const TrackTicket = () => {
     <div className="track-container">
       <div className="track-header">
         <img src="/logo-1.png" alt="AV Dynamic" className="track-logo-img" />
-        <p>Pro-Support Ticket Tracking</p>
+        <p>ProSupport Ticket Tracking</p>
       </div>
 
       <div className="track-search-card">
@@ -79,15 +79,15 @@ const TrackTicket = () => {
 
       {/* Map through all returned tickets */}
       {ticketsArray.length > 0 && (
-        <div style={{width: '100%', maxWidth: '600px'}}>
+        <div style={{ width: '100%', maxWidth: '600px' }}>
           {ticketsArray.length > 1 && (
-             <h4 style={{color: 'var(--slate-gray)', marginBottom: '15px'}}>Found {ticketsArray.length} tickets for this Reference ID</h4>
+            <h4 style={{ color: 'var(--slate-gray)', marginBottom: '15px' }}>Found {ticketsArray.length} tickets for this Reference ID</h4>
           )}
-          
+
           {ticketsArray.map((ticket, index) => {
             if (!ticket) return null;
             return (
-              <div className="ticket-result-card" key={index} style={{marginBottom: '20px'}}>
+              <div className="ticket-result-card" key={index} style={{ marginBottom: '20px' }}>
                 <div className="result-header">
                   <div>
                     <h3 style={{ fontFamily: 'SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace', fontWeight: '700', color: 'var(--primary-action)' }}>{ticket.parentId || 'N/A'}</h3>

@@ -35,7 +35,7 @@ const Login = () => {
       <div className="login-card">
         <div className="login-header">
           <img src="/logo-1.png" alt="AV Dynamic" className="login-logo-img" />
-          <p>Pro-Support Architecture</p>
+          <p>ProSupport Dashboard Login</p>
         </div>
 
         <form onSubmit={handleAuth} className="login-form">

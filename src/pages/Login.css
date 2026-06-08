@@ -29,7 +29,7 @@
 }
 
 .login-logo-img {
-    height: 64px;
+    height: 120px;
     width: auto;
     object-fit: contain;
     margin-bottom: 12px;
@@ -44,8 +44,9 @@
 }
 
 .login-header p {
-    color: var(--slate-gray);
-    font-size: 1rem;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 550;
     margin-top: 4px;
     margin-bottom: 0;
 }

@@ -30,7 +30,7 @@
 }
 
 .nav-logo-img {
-  height: 32px;
+  height: 60px;
   width: auto;
   object-fit: contain;
 }
@@ -166,7 +166,8 @@
   }
 
   .nav-menu-wrapper {
-    display: none; /* Hidden by default on mobile */
+    display: none;
+    /* Hidden by default on mobile */
     position: absolute;
     top: 64px;
     left: 0;
@@ -231,7 +232,8 @@
     margin-bottom: 4px;
   }
 
-  .btn-logout, .btn-login {
+  .btn-logout,
+  .btn-login {
     width: 100%;
     min-height: 48px;
     font-size: 1rem;
