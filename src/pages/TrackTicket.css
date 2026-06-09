@@ -30,7 +30,7 @@
 }
 
 .track-header p {
-    color: var(--slate-gray);
+    color: black;
     margin: 0;
     font-size: 1.5rem;
     font-weight: bold;

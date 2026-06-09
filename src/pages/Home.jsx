@@ -62,7 +62,7 @@ const Home = () => {
           <div className="home-card">
             <div className="card-icon">🔐</div>
             <h3>Portal Login</h3>
-            <p>Secure access for registered AV Dynamic clients, field engineers, and system administrators.</p>
+            <p>Secure access for registered AV Dynamic Clients, Engineers, and System Administrators.</p>
             <div className="action-spacer">
               <button
                 className="btn btn-secondary"
