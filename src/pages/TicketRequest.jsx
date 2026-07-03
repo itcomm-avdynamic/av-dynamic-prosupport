@@ -22,7 +22,7 @@ const TicketRequest = () => {
 
   // Dynamic Hardware Array (Max 5)
   const [products, setProducts] = useState([{ productMake: '', productModel: '', productSerial: '' }]);
-  
+
   // File Upload State
   const [fileData, setFileData] = useState(null);
   const [fileName, setFileName] = useState('Attach Invoice, Image, or Document');
@@ -33,9 +33,9 @@ const TicketRequest = () => {
       setStatus({ loading: false, error: "Please enter a reference code." });
       return;
     }
-    
+
     setStatus({ loading: true, error: null });
-    
+
     try {
       const response = await gasApi('validateRef', { ref: codeToUse });
       if (response?.success) {
@@ -83,7 +83,7 @@ const TicketRequest = () => {
       setFileData(null);
       return;
     }
-    
+
     // Validate File Size (5MB limit)
     if (file.size > 5242880) {
       alert('File size exceeds the 5MB limit. Please select a smaller file.');
@@ -104,7 +104,7 @@ const TicketRequest = () => {
     }
 
     setFileName(`Attached: ${file.name}`);
-    
+
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
@@ -150,14 +150,14 @@ const TicketRequest = () => {
 
   if (view === 'success') {
     return (
-      <div className="page-wrapper" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}}>
-        <div className="card" style={{textAlign: 'center', padding: '60px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <div className="page-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+        <div className="card" style={{ textAlign: 'center', padding: '60px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <img src="/logo-1.png" alt="AV Dynamic" className="success-logo-img" />
           <div className="success-icon">✓</div>
-          <h2 style={{fontSize: '28px', color: 'var(--slate-dark)', marginBottom: '10px'}}>Ticket Generated</h2>
-          <p style={{color: 'var(--slate-gray)', marginBottom: '30px'}}>Your service request has been logged successfully.</p>
+          <h2 style={{ fontSize: '28px', color: 'var(--slate-dark)', marginBottom: '10px' }}>Ticket Generated</h2>
+          <p style={{ color: 'var(--slate-gray)', marginBottom: '30px' }}>Your service request has been logged successfully.</p>
           <div className="request-id-display">{reqId}</div>
-          <button className="btn btn-outline mt-4" onClick={() => window.location.href = '/'} style={{marginTop: '20px'}}>Return to Home</button>
+          <button className="btn btn-outline mt-4" onClick={() => window.location.href = '/'} style={{ marginTop: '20px' }}>Return to Home</button>
         </div>
       </div>
     );
@@ -166,27 +166,27 @@ const TicketRequest = () => {
   return (
     <div className="page-wrapper">
       <main className="app-main">
-        
+
         {/* Auth View */}
         {view === 'auth' && (
           <div className="card" id="authView">
-             <img src="/logo-1.png" alt="AV Dynamic" className="auth-logo-img" />
-             <h1>Welcome to ProSupport</h1>
-             <p className="subtitle">Secure enterprise service request system.</p>
-             <div className="input-group" style={{marginBottom: '30px', width: '100%'}}>
-                <label>Client Reference Code</label>
-                <input 
-                  type="text" 
-                  value={clientCode} 
-                  onChange={(e) => setClientCode(e.target.value)}
-                  placeholder="e.g., A7K2L1" 
-                  disabled={status.loading}
-                />
-             </div>
-             <button className="btn btn-primary" onClick={() => handleAuth()} disabled={status.loading}>
-               {status.loading ? 'Authenticating...' : 'Authenticate & Continue'}
-             </button>
-             {status.error && <div className="error-text">{status.error}</div>}
+            <img src="/logo-1.png" alt="AV Dynamic" className="auth-logo-img" />
+            <h1>Welcome to ProSupport</h1>
+            <p className="subtitle">Secure enterprise service request system.</p>
+            <div className="input-group" style={{ marginBottom: '30px', width: '100%' }}>
+              <label>Client Reference Code</label>
+              <input
+                type="text"
+                value={clientCode}
+                onChange={(e) => setClientCode(e.target.value)}
+                placeholder="e.g., A7K2L1"
+                disabled={status.loading}
+              />
+            </div>
+            <button className="btn btn-primary" onClick={() => handleAuth()} disabled={status.loading}>
+              {status.loading ? 'Authenticating...' : 'Authenticate & Continue'}
+            </button>
+            {status.error && <div className="error-text">{status.error}</div>}
           </div>
         )}
 
@@ -203,43 +203,44 @@ const TicketRequest = () => {
               <div className="grid-2">
                 <div className="input-group">
                   <label>Requester Name <span className="req">*</span></label>
-                  <input type="text" required value={formData.reqName} onChange={e => setFormData({...formData, reqName: e.target.value})} disabled={status.loading} />
+                  <input type="text" required value={formData.reqName} onChange={e => setFormData({ ...formData, reqName: e.target.value })} disabled={status.loading} />
                 </div>
                 <div className="input-group">
                   <label>Phone Number <span className="req">*</span></label>
-                  <input type="tel" required value={formData.reqPhone} onChange={e => setFormData({...formData, reqPhone: e.target.value})} disabled={status.loading} />
+                  <input type="tel" required value={formData.reqPhone} onChange={e => setFormData({ ...formData, reqPhone: e.target.value })} disabled={status.loading} />
                 </div>
                 <div className="input-group">
                   <label>Client Email(s) - Comma separated <span className="req">*</span></label>
-                  <input type="text" required value={formData.reqEmail} onChange={e => setFormData({...formData, reqEmail: e.target.value})} placeholder="e.g., client1@example.com, client2@example.com" disabled={status.loading} />
+                  <input type="text" required value={formData.reqEmail} onChange={e => setFormData({ ...formData, reqEmail: e.target.value })} placeholder="e.g., client1@example.com, client2@example.com" disabled={status.loading} />
                 </div>
                 <div className="input-group">
                   <label>Location (Site) <span className="req">*</span></label>
-                  <input type="text" required value={formData.reqLocation} onChange={e => setFormData({...formData, reqLocation: e.target.value})} disabled={status.loading} />
+                  <input type="text" required value={formData.reqLocation} onChange={e => setFormData({ ...formData, reqLocation: e.target.value })} disabled={status.loading} />
                 </div>
                 <div className="input-group">
                   <label>Room Name <span className="req">*</span></label>
-                  <input type="text" required value={formData.reqRoom} onChange={e => setFormData({...formData, reqRoom: e.target.value})} disabled={status.loading} />
+                  <input type="text" required value={formData.reqRoom} onChange={e => setFormData({ ...formData, reqRoom: e.target.value })} disabled={status.loading} />
                 </div>
               </div>
 
               <div className="grid-2">
                 <div className="input-group">
                   <label>Category <span className="req">*</span></label>
-                  <select required value={formData.reqCategory} onChange={e => setFormData({...formData, reqCategory: e.target.value})} disabled={status.loading}>
+                  <select required value={formData.reqCategory} onChange={e => setFormData({ ...formData, reqCategory: e.target.value })} disabled={status.loading}>
                     <option value="">Select Category...</option>
                     <option>Hardware</option>
                     <option>Connectivity</option>
                     <option>Programming</option>
                     <option>Software</option>
                     <option>Network</option>
+                    <option>AV Support</option>
                   </select>
                 </div>
               </div>
 
               <div className="input-group full-width mt-3">
                 <label>Issue Description <span className="req">*</span></label>
-                <textarea rows="4" required value={formData.reqDescription} onChange={e => setFormData({...formData, reqDescription: e.target.value})} disabled={status.loading}></textarea>
+                <textarea rows="4" required value={formData.reqDescription} onChange={e => setFormData({ ...formData, reqDescription: e.target.value })} disabled={status.loading}></textarea>
               </div>
 
               <div className="section-title"><span>02.</span> Infrastructure Details</div>
@@ -251,9 +252,9 @@ const TicketRequest = () => {
                     <div className="product-header">
                       <h4>Item {idx + 1}</h4>
                       {products.length > 1 && (
-                        <button 
-                          type="button" 
-                          className="btn btn-sm btn-danger remove-btn" 
+                        <button
+                          type="button"
+                          className="btn btn-sm btn-danger remove-btn"
                           onClick={() => removeProductUI(idx)}
                           disabled={status.loading}
                         >
@@ -271,14 +272,14 @@ const TicketRequest = () => {
                         <input type="text" required value={prod.productModel} onChange={e => handleProductChange(idx, 'productModel', e.target.value)} disabled={status.loading} />
                       </div>
                     </div>
-                    <div className="input-group" style={{marginBottom: 0}}>
+                    <div className="input-group" style={{ marginBottom: 0 }}>
                       <label>Serial Number *</label>
                       <input type="text" required value={prod.productSerial} onChange={e => handleProductChange(idx, 'productSerial', e.target.value)} placeholder="Write NA if unknown" disabled={status.loading} />
                     </div>
                   </div>
                 );
               })}
-              
+
               {products.length < 5 && (
                 <button type="button" className="btn btn-outline mt-3" onClick={addProductUI} disabled={status.loading}>+ Add Hardware Item</button>
               )}
@@ -286,12 +287,12 @@ const TicketRequest = () => {
               <div className="section-title"><span>03.</span> Attachments</div>
               <div className="upload-box">
                 <label htmlFor="reqInvoice" className="upload-label">
-                  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px'}}>
-                    <span style={{color: fileData ? 'var(--brand-accent)' : 'var(--text-muted)', fontWeight: fileData ? 'bold' : 'normal'}}>{fileName}</span>
-                    <span style={{fontSize: '13px', color: 'var(--text-muted)'}}>(PDF, JPG, PNG - Max limit: 5MB)</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                    <span style={{ color: fileData ? 'var(--brand-accent)' : 'var(--text-muted)', fontWeight: fileData ? 'bold' : 'normal' }}>{fileName}</span>
+                    <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>(PDF, JPG, PNG - Max limit: 5MB)</span>
                   </div>
                 </label>
-                <input type="file" id="reqInvoice" style={{display: 'none'}} accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileChange} disabled={status.loading} />
+                <input type="file" id="reqInvoice" style={{ display: 'none' }} accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileChange} disabled={status.loading} />
               </div>
 
               <div className="form-footer">
